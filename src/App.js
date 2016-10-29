@@ -12,11 +12,13 @@ class App extends Component {
         </div>
         <p className="App-intro">
             <h1>Hello, world!</h1>
-            <ListItem value={numbers} />
-            <NumberList numbers={numbers} />
-            <Blog posts={posts} />
-            <NumberList2 numbers={numbers} />
-            <NumberList3 numbers={numbers} />
+            <Form />
+            <Form2 />
+            <Form3 />
+            <Form4 />
+            <Form5 />
+            <Form6 />
+            <Form7 />
         </p>
       </div>
     );
@@ -25,78 +27,286 @@ class App extends Component {
 
 export default App;
 
-function ListItem(props) {
-    // Correct! There is no need to specify the key here:
-    return <li>{props.value}</li>;
+class Form extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {value: ''};
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('Text field value is: ' + this.state.value);
+    }
+
+    render() {
+        return (
+            <div>
+                <input type="text"
+                       placeholder="Hello!"
+                       value={this.state.value}
+                       onChange={this.handleChange} />
+                <button onClick={this.handleSubmit}>
+                    Submit
+                </button>
+            </div>
+        );
+    }
 }
 
-function NumberList(props) {
-    const numbers = props.numbers;
-    const listItems = numbers.map((number) =>
-        // Correct! Key should be specified inside the array.
-        <ListItem key={number.toString()}
-                  value={number} />
-    );
-    return (
-        <ul>
-            {listItems}
-        </ul>
-    );
+class Form2 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {value: ''};
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        // Note: with uncontrolled inputs, you don't
+        // have to put the value in the state.
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('Text field value is: ' + this.state.value);
+    }
+
+    render() {
+        return (
+            <div>
+                <input
+                    type="text"
+                    placeholder="Hello!"
+                    onChange={this.handleChange} />
+                <button onClick={this.handleSubmit}>
+                    Submit
+                </button>
+            </div>
+        );
+    }
 }
 
-const numbers = [1, 2, 3, 4, 5];
+class Form3 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {value: ''};
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-function Blog(props) {
-    const sidebar = (
-        <ul>
-            {props.posts.map((post) =>
-                <li key={post.id}>
-                    {post.title}
-                </li>
-            )}
-        </ul>
-    );
-    const content = props.posts.map((post) =>
-        <div key={post.id}>
-            <h3>{post.title}</h3>
-            <p>{post.content}</p>
-        </div>
-    );
-    return (
-        <div>
-            {sidebar}
-            <hr />
-            {content}
-        </div>
-    );
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('Text field value is: ' + this.state.value);
+    }
+
+    render() {
+        return (
+            <div>
+                <input
+                    type="text"
+                    placeholder="edit me"
+                    value={this.state.value}
+                    onChange={this.handleChange}
+                />
+                <button onClick={this.handleSubmit}>
+                    Submit
+                </button>
+            </div>
+        );
+    }
 }
 
-const posts = [
-    {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
-    {id: 2, title: 'Installation', content: 'You can install React from npm.'}
-];
+class Form4 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {value: ''};
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-function NumberList2(props) {
-    const numbers = props.numbers;
-    const listItems = numbers.map((number) =>
-        <ListItem key={number.toString()}
-                  value={number} />
-    );
-    return (
-        <ul>
-            {listItems}
-        </ul>
-    );
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('Textarea value is: ' + this.state.value);
+    }
+
+    render() {
+        return (
+            <div>
+        <textarea
+            name="description"
+            value={this.state.value}
+            onChange={this.handleChange}
+        />
+                <br />
+                <button onClick={this.handleSubmit}>
+                    Submit
+                </button>
+            </div>
+        );
+    }
 }
 
-function NumberList3(props) {
-    const numbers = props.numbers;
-    return (
-        <ul>
-            {numbers.map((number) =>
-                <ListItem key={number.toString()}
-                          value={number} />
-            )}
-        </ul>
-    );
+class Form5 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {value: 'B'};
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('Select value is: ' + this.state.value);
+    }
+
+    render() {
+        return (
+            <div>
+                <select value={this.state.value} onChange={this.handleChange}>
+                    <option value="A">Apple</option>
+                    <option value="B">Banana</option>
+                    <option value="C">Cranberry</option>
+                </select>
+                <button onClick={this.handleSubmit}>
+                    Submit
+                </button>
+            </div>
+        );
+    }
+}
+
+class Form6 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {value: 'B'};
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('Radio button value is: ' + this.state.value);
+    }
+
+    render() {
+        return (
+            <div>
+                <label>
+                    <input
+                        type="radio"
+                        name="choice"
+                        value="A"
+                        onChange={this.handleChange} />
+                    Option A
+                </label>
+                <br />
+                <label>
+                    <input
+                        type="radio"
+                        name="choice"
+                        value="B"
+                        onChange={this.handleChange}
+                        defaultChecked={true} />
+                    Option B
+                </label>
+                <br />
+                <label>
+                    <input
+                        type="radio"
+                        name="choice"
+                        value="C"
+                        onChange={this.handleChange} />
+                    Option C
+                </label>
+                <br />
+                <br />
+                <button onClick={this.handleSubmit}>
+                    Submit
+                </button>
+            </div>
+        );
+    }
+}
+
+class Form7 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {checked: {'A': false, 'B': true, 'C': false}};
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        const value = event.target.value;
+        // Copy the object so we don't mutate the old state.
+        // (This requires an Object.assign polyfill):
+        const checked = Object.assign({}, this.state.checked)
+        if (!checked[value]) {
+            checked[value] = true;
+        } else {
+            checked[value] = false;
+        };
+        this.setState({checked});
+    }
+
+    handleSubmit(event) {
+        alert('Boxes checked: ' +
+            (this.state.checked.A ? 'A ' : '') +
+            (this.state.checked.B ? 'B ' : '') +
+            (this.state.checked.C ? 'C' : '')
+        );
+    }
+
+    render() {
+        return (
+            <div>
+                <label>
+                    <input
+                        type="checkbox"
+                        value="A"
+                        onChange={this.handleChange} />
+                    Option A
+                </label>
+                <br />
+                <label>
+                    <input
+                        type="checkbox"
+                        value="B"
+                        onChange={this.handleChange}
+                        defaultChecked={true} />
+                    Option B
+                </label>
+                <br />
+                <label>
+                    <input
+                        type="checkbox"
+                        value="C"
+                        onChange={this.handleChange} />
+                    Option C
+                </label>
+                <br />
+                <br />
+                <button onClick={this.handleSubmit}>
+                    Submit
+                </button>
+            </div>
+        );
+    }
 }
