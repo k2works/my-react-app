@@ -19,6 +19,7 @@ class App extends Component {
             {element1_5}
             {element1_6}
             {element1_7}
+            {element2_1}
         </p>
       </div>
     );
@@ -84,3 +85,9 @@ const element1_7 = React.createElement(
     'Hello, world!'
 );
 
+const element2_1 = (
+    <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+);
