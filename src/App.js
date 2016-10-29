@@ -12,6 +12,13 @@ class App extends Component {
         </div>
         <p className="App-intro">
             <h1>Hello, world!</h1>
+            {element}
+            {element1_2}
+            {element1_3}
+            {element1_4}
+            {element1_5}
+            {element1_6}
+            {element1_7}
         </p>
       </div>
     );
@@ -19,3 +26,61 @@ class App extends Component {
 }
 
 export default App;
+
+function formatName(user) {
+    return user.firstName + ' ' + user.lastName;
+}
+
+var user = {
+    firstName: 'Harper',
+    lastName: 'Perez'
+};
+
+const element = (
+    <h1>
+        Hello, {formatName(user)}!
+    </h1>
+);
+
+function getGreeting(user) {
+    if (user) {
+        return <h1>Hello, {formatName(user)}!</h1>;
+    }
+    return <h1>Hello, Stranger.</h1>;
+}
+
+user = null;
+
+const element1_2 = (
+    <h1>
+        {getGreeting(user)}
+    </h1>
+);
+
+var user = {
+    firstName: 'k2works',
+    lastName: '',
+    avatarUrl: 'https://avatars0.githubusercontent.com/u/3236312?v=3&s=466'
+};
+
+const element1_3 = <div tabIndex="0"></div>;
+const element1_4 = <img src={user.avatarUrl}></img>;
+
+const element1_5 = (
+    <div>
+        <h1>Hello!</h1>
+        <h2>Good to see you here.</h2>
+    </div>
+);
+
+const element1_6 = (
+    <h1 className="greeting">
+        Hello, world!
+    </h1>
+);
+const element1_7 = React.createElement(
+    'h1',
+    {className: 'greeting'},
+    'Hello, world!'
+);
+
