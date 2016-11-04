@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Calculator from './Calculator'
+import SignUpDialog from './SignUpDialog'
 
 class App extends Component {
     render() {
@@ -13,7 +13,7 @@ class App extends Component {
         </div>
         <p className="App-intro">
             <h1>Hello, world!</h1>
-            <Calculator/>
+            <SignUpDialog />
         </p>
       </div>
     );
