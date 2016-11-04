@@ -40,3 +40,8 @@
 .Dialog-message {
   font-size: larger;
 }
+
+.FilterableProductTable__ProductTable {
+    margin-right: auto;
+    margin-left: auto;
+}
