@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import FormInput from './FormInput'
-import FormTextarea from './FormTextarea'
-import FormSelect from './FormSelect'
-import FormRadioButton from './FormRadioButton'
-import FormCheckbox from './FormCheckbox'
+import Calculator from './Calculator'
 
 class App extends Component {
     render() {
@@ -17,11 +13,7 @@ class App extends Component {
         </div>
         <p className="App-intro">
             <h1>Hello, world!</h1>
-            <FormInput />
-            <FormTextarea />
-            <FormSelect />
-            <FormRadioButton />
-            <FormCheckbox />
+            <Calculator/>
         </p>
       </div>
     );
