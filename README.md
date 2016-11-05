@@ -15,6 +15,8 @@
 + デプロイ
 
 ### セットアップ
+サンプルを起動する
+
 ```
 $ vagarant up
 $ cd /vagrant
@@ -23,6 +25,12 @@ $ npm start
 
 [http://127.0.0.1:3000/](http://127.0.0.1:3000/)接続して動作を確認する。
 
+Sassを使えるようにする
+```
+
+```
+
 ## 参照
 + [React](https://facebook.github.io/react/)
 + [Create React App](https://github.com/facebookincubator/create-react-app)
++ [Adding Sass or Scss to Create-React-App](https://medium.com/@Connorelsea/using-sass-with-create-react-app-7125d6913760#.rqlz94to0)
